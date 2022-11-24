@@ -25,30 +25,22 @@ if (!isConnect()) {
 <form class="form-horizontal">
   <fieldset>
     <div class="form-group">
-      <label class="col-md-4 control-label">{{Global param 1}}
-        <sup><i class="fas fa-question-circle tooltips" title="{{Renseignez le paramètre 1 du plugin}}"></i></sup>
-      </label>
+      <label class="col-md-4 control-label">{{Numéro de série du hub}}</label>
       <div class="col-md-4">
-        <input class="configKey form-control" data-l1key="param1"/>
+        <input class="configKey form-control" data-l1key="myenergi::serial" />
       </div>
     </div>
     <div class="form-group">
-      <label class="col-md-4 control-label">{{Global param 2}}
-        <sup><i class="fas fa-question-circle tooltips" title="{{Renseignez le paramètre 2 du plugin}}"></i></sup>
-      </label>
+      <label class="col-md-4 control-label">{{Clef API}}</label>
       <div class="col-md-4">
-        <input class="configKey form-control" data-l1key="param2"/>
+        <input class="configKey form-control" data-l1key="myenergi::apikey" />
       </div>
     </div>
     <div class="form-group">
-      <label class="col-md-4 control-label">{{Global param 3}}
-        <sup><i class="fas fa-question-circle tooltips" title="{{Sélectionnez du paramètre 3 du plugin}}"></i></sup>
-      </label>
+      <label class="col-md-4 control-label">{{Serveur}}</label>
       <div class="col-md-4">
-        <select class="configKey form-control" data-l1key="param3">
-          <option value=""></option>
-          <option value="value1">value1</option>
-          <option value="value2">value2</option>
+        <select class="configKey form-control" data-l1key="myenergi::server">
+          <option value="18">18</option>
         </select>
       </div>
     </div>
