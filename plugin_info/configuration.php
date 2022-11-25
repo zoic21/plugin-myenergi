@@ -33,7 +33,7 @@ if (!isConnect()) {
     <div class="form-group">
       <label class="col-md-4 control-label">{{Clef API}}</label>
       <div class="col-md-4">
-        <input class="configKey form-control" data-l1key="myenergi::apikey" />
+        <input type="password" class="configKey form-control" data-l1key="myenergi::apikey" />
       </div>
     </div>
     <div class="form-group">

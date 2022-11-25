@@ -14,10 +14,10 @@ $eqLogics = eqLogic::byType($plugin->getId());
 		<legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
 		<!-- Boutons de gestion du plugin -->
 		<div class="eqLogicThumbnailContainer">
-			<div class="cursor eqLogicAction logoPrimary" data-action="add">
-				<i class="fas fa-plus-circle"></i>
+			<div class="cursor eqLogicAction logoSecondary" data-action="sync">
+				<i class="fa fa-sync"></i>
 				<br>
-				<span>{{Ajouter}}</span>
+				<span>{{Synchronisation}}</span>
 			</div>
 			<div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf">
 				<i class="fas fa-wrench"></i>
@@ -43,7 +43,11 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			foreach ($eqLogics as $eqLogic) {
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
 				echo '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '">';
-				echo '<img src="' . $plugin->getPathImgIcon() . '">';
+				if ($eqLogic->getImgFilePath() !== false) {
+					echo '<img class="lazy" src="plugins/myenergi/core/config/devices/' . $eqLogic->getImgFilePath() . '"/>';
+				} else {
+					echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
+				}
 				echo '<br>';
 				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
 				echo '<span class="hiddenAsCard displayTableRight hidden">';
@@ -131,10 +135,28 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<div class="col-lg-6">
 							<legend><i class="fas fa-info"></i> {{Informations}}</legend>
 							<div class="form-group">
-								<label class="col-sm-4 control-label">{{Description}}</label>
+								<label class="col-sm-4 control-label">{{Type}}</label>
 								<div class="col-sm-6">
-									<textarea class="form-control eqLogicAttr autogrow" data-l1key="comment"></textarea>
+									<span class="label label-info eqLogicAttr" data-l1key="configuration" data-l2key="device"></span>
 								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label">{{Numéro de série}}</label>
+								<div class="col-sm-6">
+									<span class="label label-info eqLogicAttr" data-l1key="logicalId"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label">{{Firmware}}</label>
+								<div class="col-sm-6">
+									<span class="label label-info eqLogicAttr" data-l1key="configuration" data-l2key="firmware"></span>
+								</div>
+							</div>
+							<br />
+							<div class="form-group">
+								<center>
+									<img src="<?php echo $plugin->getPathImgIcon() ?>" data-original=".jpg" id="img_device" class="img-responsive" style="max-width:400px;" onerror="this.src='<?php echo $plugin->getPathImgIcon() ?>'" />
+								</center>
 							</div>
 						</div>
 					</fieldset>

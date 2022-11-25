@@ -1,0 +1,57 @@
+{
+    "name": "Eddi",
+    "commands": [
+        {
+            "name": "Boost mode",
+            "type": "info",
+            "subtype": "binary",
+            "isVisible": 0,
+            "isHistorized": 0,
+            "logicalId": "bsm"
+        },
+        {
+            "name": "Consommation jour",
+            "type": "info",
+            "subtype": "numeric",
+            "isVisible": 1,
+            "isHistorized": 1,
+            "unite" : "kWh",
+            "logicalId": "che"
+        },
+        {
+            "name": "Sortie active",
+            "type": "info",
+            "subtype": "numeric",
+            "isVisible": 1,
+            "isHistorized": 0,
+            "logicalId": "hno"
+        },
+        {
+            "name": "Etat",
+            "type": "info",
+            "subtype": "numeric",
+            "isVisible": 1,
+            "isHistorized": 1,
+            "logicalId": "sta"
+        },
+        {
+            "name": "Température 1",
+            "type": "info",
+            "subtype": "numeric",
+            "isVisible": 1,
+            "isHistorized": 1,
+            "unite" : "°C",
+            "logicalId": "tp1"
+        },
+        {
+            "name": "Température 2",
+            "type": "info",
+            "subtype": "numeric",
+            "isVisible": 1,
+            "isHistorized": 1,
+            "unite" : "°C",
+            "logicalId": "tp2"
+        }
+    ]
+}
+  
