@@ -27,7 +27,7 @@ class myenergi extends eqLogic {
 
   /*     * ***********************Methode static*************************** */
 
-  public static function cron15() {
+  public static function cron5() {
     self::sync();
   }
 
@@ -195,7 +195,29 @@ class myenergiCmd extends cmd {
   public function execute($_options = array()) {
     if ($this->getLogicalId() == 'refresh') {
       myenergi::sync();
+      return;
     }
+    $eqLogic = $this->getEqLogic();
+    $replace = array(
+      '#serial#' => $eqLogic->getLogicalId()
+    );
+    switch ($this->getSubType()) {
+      case 'slider':
+        $replace['#slider#'] = round(floatval($_options['slider']), 2);
+        break;
+      case 'select':
+        $replace['#select#'] = $_options['select'];
+        break;
+      case 'message':
+        $replace['#title#'] = $_options['title'];
+        $replace['#message#'] = $_options['message'];
+        if ($_options['message'] == '' && $_options['title'] == '') {
+          throw new Exception(__('Le message et le sujet ne peuvent pas être vide', __FILE__));
+        }
+        break;
+    }
+    myenergi::request(str_replace(array_keys($replace), $replace, $this->getLogicalId()));
+    myenergi::sync();
   }
 
   /*     * **********************Getteur Setteur*************************** */

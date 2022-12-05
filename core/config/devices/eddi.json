@@ -51,6 +51,38 @@
             "isHistorized": 1,
             "unite" : "°C",
             "logicalId": "tp2"
+        },
+        {
+            "name": "Boost",
+            "type": "action",
+            "subtype": "slider",
+            "isVisible": 1,
+            "logicalId": "/cgi-eddi-boost-E#serial#-10-1-#slider#",
+            "configuration" : {
+                "minValue" : 0,
+                "maxValue" : 180
+            }
+        },
+        {
+            "name": "Stop boost",
+            "type": "action",
+            "subtype": "other",
+            "isVisible": 1,
+            "logicalId": "/cgi-eddi-boost-E#serial#-1-1-0"
+        },
+        {
+            "name": "Stop",
+            "type": "action",
+            "subtype": "other",
+            "isVisible": 1,
+            "logicalId": "/cgi-eddi-mode-E#serial#-0"
+        },
+        {
+            "name": "Normal",
+            "type": "action",
+            "subtype": "other",
+            "isVisible": 1,
+            "logicalId": "/cgi-eddi-mode-E#serial#-1"
         }
     ]
 }
