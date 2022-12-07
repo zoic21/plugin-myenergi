@@ -86,11 +86,11 @@ class myenergi extends eqLogic {
             $previousChe = $eqLogic->getCmd('info', 'che')->execCmd();
             $consumption = $eqLogic->getCmd('info', 'consumption');
             $prevConsumption = $consumption->execCmd();
-            if (date('d', strtotime($consumption->getValueDate())) != date('d')) {
+            if (date('Y-m-d', strtotime($consumption->getValueDate())) != date('Y-m-d')) {
               $prevConsumption = 0;
             }
             if ($previousChe != $zappi['che'] && $zappi['che'] > 0) {
-              $prevConsumption += ($previousChe < $zappi['che']) ? $zappi['che'] - $previousChe : $zappi['che'];
+              $prevConsumption += ($previousChe < $zappi['che']) ? ($zappi['che'] - $previousChe) : $zappi['che'];
             }
             $eqLogic->checkAndUpdateCmd('consumption', $prevConsumption);
           }
