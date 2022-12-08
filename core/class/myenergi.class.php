@@ -32,7 +32,7 @@ class myenergi extends eqLogic {
   }
 
   public static function request($_path) {
-    $url = 'https://s' . config::byKey('myenergi::server', 'myenergi') . '.myenergi.net/' . $_path;
+    $url = 'https://s' . config::byKey('myenergi::server', 'myenergi') . '.myenergi.net/' . trim($_path, '/');
     $request_http = new com_http($url, config::byKey('myenergi::serial', 'myenergi'), config::byKey('myenergi::apikey', 'myenergi'));
     $request_http->setCURLOPT_HTTPAUTH(CURLAUTH_DIGEST);
     $request_http->setHeader(array(

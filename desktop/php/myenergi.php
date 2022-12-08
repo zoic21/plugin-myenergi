@@ -168,8 +168,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 				<a class="btn btn-default btn-sm pull-right cmdAction" data-action="add" style="margin-top:5px;"><i class="fas fa-plus-circle"></i> {{Ajouter une commande}}</a>
 				<br><br>
 				<div class="table-responsive">
-					<table id="table_cmd" class="table table-bordered table-condensed">
-					</table>
+					<table id="table_cmd" class="table table-bordered table-condensed"></table>
 				</div>
 			</div><!-- /.tabpanel #commandtab-->
 
