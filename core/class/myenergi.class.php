@@ -94,7 +94,6 @@ class myenergi extends eqLogic {
             }
             $eqLogic->checkAndUpdateCmd('consumption', $prevConsumption);
           }
-
           foreach ($zappi as $key => $value) {
             $eqLogic->checkAndUpdateCmd($key, $value);
           }
