@@ -130,7 +130,7 @@ class myenergi extends eqLogic {
     }
     $cmd = $this->getCmd('action', 'refresh');
     if (!is_object($cmd)) {
-      $cmd = new philipsHueCmd();
+      $cmd = new myenergiCmd();
       $cmd->setName(__('Rafraichir', __FILE__));
       $cmd->setEqLogic_id($this->getId());
       $cmd->setIsVisible(1);
