@@ -81,16 +81,20 @@ class myenergi extends eqLogic {
           }
           $eqLogic->setConfiguration('firmware', $zappi['fwv']);
           $eqLogic->save();
-          $previousChe = $eqLogic->getCmd('info', 'che')->execCmd();
-          $consumption = $eqLogic->getCmd('info', 'consumption');
-          $prevConsumption = $consumption->execCmd();
-          if (date('Y-m-d', strtotime($consumption->getValueDate())) != date('Y-m-d')) {
-            $prevConsumption = 0;
+          try {
+            $previousChe = $eqLogic->getCmd('info', 'che')->execCmd();
+            $consumption = $eqLogic->getCmd('info', 'consumption');
+            $prevConsumption = $consumption->execCmd();
+            if (date('Y-m-d', strtotime($consumption->getValueDate())) != date('Y-m-d')) {
+              $prevConsumption = 0;
+            }
+            if (isset($zappi['che']) && $previousChe != $zappi['che'] && $zappi['che'] > 0) {
+              $prevConsumption += ($previousChe < $zappi['che']) ? ($zappi['che'] - $previousChe) : $zappi['che'];
+            }
+            $eqLogic->checkAndUpdateCmd('consumption', $prevConsumption);
+          } catch (Exception $ex) {
+          } catch (Error $ex) {
           }
-          if (isset($zappi['che']) && $previousChe != $zappi['che'] && $zappi['che'] > 0) {
-            $prevConsumption += ($previousChe < $zappi['che']) ? ($zappi['che'] - $previousChe) : $zappi['che'];
-          }
-          $eqLogic->checkAndUpdateCmd('consumption', $prevConsumption);
           foreach ($zappi as $key => $value) {
             $eqLogic->checkAndUpdateCmd($key, $value);
           }
