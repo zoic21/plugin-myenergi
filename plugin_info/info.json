@@ -6,7 +6,7 @@
 	},
 	"licence" : "AGPL",
 	"author" : "Loïc",
-	"require" : "4.3.0",
+	"require" : "4.4.0",
 	"category" : "energy",
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,
