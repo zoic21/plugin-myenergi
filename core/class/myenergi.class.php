@@ -47,7 +47,7 @@ class myenergi extends eqLogic {
   public static function sync() {
     $datas  = self::request('cgi-jstatus-*');
     foreach ($datas as $data) {
-      if (isset($data['eddi'])) {
+      if (isset($data['eddi']) && count($data['eddi']) > 0) {
         foreach ($data['eddi'] as $eddi) {
           $eqLogic = self::byLogicalId($eddi['sno'], 'myenergi');
           if (!is_object($eqLogic)) {
@@ -67,7 +67,7 @@ class myenergi extends eqLogic {
           }
         }
       }
-      if (isset($data['zappi'])) {
+      if (isset($data['zappi']) && count($data['zappi']) > 0) {
         foreach ($data['zappi'] as $zappi) {
           $eqLogic = self::byLogicalId($zappi['sno'], 'myenergi');
           if (!is_object($eqLogic)) {
