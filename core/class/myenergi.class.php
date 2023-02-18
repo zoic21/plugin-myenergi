@@ -138,7 +138,11 @@ class myenergi extends eqLogic {
     }
     $cmd->setType('action');
     $cmd->setSubtype('other');
-    $cmd->save();
+    try{
+      $cmd->save();
+    } catch (Exception $ex) {
+    } catch (Error $ex) {
+    }
   }
 
   public function applyModuleConfiguration() {
